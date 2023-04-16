@@ -9,10 +9,28 @@
 
 package org.example;
 
+import javax.swing.*;
+import java.util.Timer;
 import java.util.concurrent.Semaphore;
 
 public class Main {
-    public static void main(String[] args) {
+    public static void main(String[] args) throws Exception {
+
+        new Window();
+
+
+        /*SwingUtilities.invokeLater(() -> {
+            Window w = new Window();
+
+            ChildsDrawing c = new ChildsDrawing();
+            w.add(c);
+
+            w.setVisible(true);
+
+            Timer animationTimer = new Timer();
+            AnimationTask myLoop = new AnimationTask(c);
+            animationTimer.scheduleAtFixedRate(myLoop, 0, 100);
+        });*/
 
         final int CHILDS_NUMBER = 2;
         final int MAX_CHILDS_PLAYING = 1;
@@ -22,7 +40,7 @@ public class Main {
         Semaphore playing = new Semaphore(MAX_CHILDS_PLAYING);
         Semaphore quiet = new Semaphore(0);
 
-        Child c = new Child(0, 3, 3, true,mutex, playing, quiet);
+        /*Child c = new Child(0, 3, 3, true,mutex, playing, quiet);
         Child c2 = new Child(1, 3, 3, false,mutex, playing, quiet);
         Child c3 = new Child(2, 3, 3, false,mutex, playing, quiet);
         Playing p = new Playing(c);
@@ -37,7 +55,7 @@ public class Main {
         p2.start();
         q2.start();
         p3.start();
-        q3.start();
+        q3.start();*/
 
     }
 }

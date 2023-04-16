@@ -9,6 +9,7 @@ public class Child extends Thread{
     private int timePlaying;
     private int timeQuiet;
     private boolean haveBall;
+    private boolean isPlaying;
     private Semaphore mutex, playing, quiet; //playing = empty && quiet = full
 
     public Child(int id, int timePlaying, int timeQuiet, boolean haveBall, Semaphore mutex, Semaphore playing, Semaphore quiet) {
@@ -19,6 +20,7 @@ public class Child extends Thread{
         this.mutex = mutex;
         this.playing = playing;
         this.quiet = quiet;
+        this.isPlaying = false;
     }
 
     @Override
